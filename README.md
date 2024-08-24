@@ -31,9 +31,9 @@
 >راهنمایی : (در قسمت `<IPv4-KHAREJ>` ، آیپی ورژن 4 پابلیک سرور خارج رو قرار میدیم و در بخش `<IPv4-IRAN>` ، آیپی ورژن 4 پابلیک ایران رو قرار میدیم)
 ```shell
 ip tunnel add 6to4_To_KH mode sit remote <IPv4-KHAREJ> local <IPv4-IRAN>
-ip -6 addr add fde8:b030:25cf::de01/64 dev 6to4_To_KH
-ip link set 6to4_To_KH mtu 1480
-ip link set 6to4_To_KH up
+ip -6 addr add fde8:b030:25cf::de01/64 dev sparkvps
+ip link set sparkvps mtu 1480
+ip link set sparkvps up
 ```
 
 
@@ -45,9 +45,9 @@ ip link set 6to4_To_KH up
 
 ```shell 
 ip tunnel add 6to4_To_IR mode sit remote <IPv4-IRAN> local <IPv4-KHAREJ>
-ip -6 addr add fde8:b030:25cf::de02/64 dev 6to4_To_IR
-ip link set 6to4_To_IR mtu 1480
-ip link set 6to4_To_IR up
+ip -6 addr add fde8:b030:25cf::de02/64 dev sparkvps
+ip link set sparkvps mtu 1480
+ip link set sparkvps up
 ```
 تا اینجای کار اگر دستورات رو درست وارد کرده باشید تانل 6to4 بین سرور خارج و ایران برقرار شده .
 - آیپی v6 سرور ایران : fde8:b030:25cf::de01
